@@ -43,5 +43,7 @@ RUN cd /tmp/git && git clone https://code.aliyun.com/ossrs/go-oryx.git
 RUN cd /tmp/git/go-oryx/httpx-static && go build -mod=vendor . && \
     ln -sf `pwd`/httpx-static /usr/local/bin/
 
+ADD index.html /usr/local/share/janus/demos/
+ADD videoroomtest.js /usr/local/share/janus/demos/
 ADD start.sh /usr/local/bin
 CMD ['/usr/local/bin/start.sh']
