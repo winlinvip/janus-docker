@@ -28,7 +28,7 @@ ADD libmicrohttpd-0.9.59.tar.gz /tmp/git/janus-docker
 RUN cd /tmp/git/janus-docker/libmicrohttpd-0.9.59 && \
     ./configure && make && make install
 
-ENV PKG_CONFIG_PATH /usr/local/lib/pkgconfig
+ENV PKG_CONFIG_PATH /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
 ADD janus-gateway-0.10.10.tar.gz /tmp/git/janus-docker
 RUN cd /tmp/git/janus-docker/janus-gateway-0.10.10 && \
     bash autogen.sh && ./configure && make && make configs && make install
