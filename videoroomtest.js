@@ -55,7 +55,7 @@ var opaqueId = "videoroomtest-"+Janus.randomString(12);
 var myroom = 1234;	// Demo room
 if(getQueryStringValue("room") !== "")
 	myroom = parseInt(getQueryStringValue("room"));
-var myusername = 'test';
+var myusername = null;
 var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
@@ -72,7 +72,7 @@ $(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
-		$('#start').one('click', function() {
+		$('#start').on('click', function() {
 			$(this).attr('disabled', true).unbind('click');
 			// Make sure the browser supports WebRTC
 			if(!Janus.isWebrtcSupported()) {
@@ -353,6 +353,13 @@ $(document).ready(function() {
 				});
 		});
 	}});
+
+	// Start and join room automatically.
+	$('#username').val('test');
+	$('#start').click();
+	setTimeout(function () {
+		$('#register').click();
+	}, 1000);
 });
 
 function checkEnter(field, event) {
