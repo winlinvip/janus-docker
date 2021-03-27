@@ -8,7 +8,9 @@ Start janus:
 
 ```bash
 docker run --rm -it -p 8080:8080 \
-    registry.cn-hangzhou.aliyuncs.com/ossrs/janus
+    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.4
 ```
+
+打开页面，自动入会：http://localhost:8080
 
 Winlin 2021.03
