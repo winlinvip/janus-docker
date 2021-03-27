@@ -11,7 +11,7 @@ RUN yum install -y libmicrohttpd-devel jansson-devel \
        libconfig-devel libtool autoconf automake
 
 ADD libnice-0.1.18.tar.gz /tmp/git/janus-docker
-RUN yum install -y python3-pip && pip3 install meson ninja &&
+RUN yum install -y python3-pip && pip3 install meson ninja && \
     cd /tmp/git/janus-docker/libnice-0.1.18 && \
     meson build && ninja -C build && ninja -C build install
 
