@@ -15,10 +15,6 @@ RUN yum install -y python3-pip && pip3 install meson ninja && \
     cd /tmp/git/janus-docker/libnice-0.1.18 && \
     meson build && ninja -C build && ninja -C build install
 
-ADD libsrtp-2.3.0.tar.gz /tmp/git/janus-docker
-RUN cd /tmp/git/janus-docker/libsrtp-2.3.0 && \
-    ./configure && make && make install
-
 ADD gengetopt-2.22.tar.gz /tmp/git/janus-docker
 ADD fileutils.cpp /tmp/git/janus-docker/gengetopt-2.22/src/fileutils.cpp
 RUN cd /tmp/git/janus-docker/gengetopt-2.22 && \
@@ -41,6 +37,10 @@ RUN cd /tmp/git/go-oryx/httpx-static && go build -mod=vendor . && \
 
 ADD openssl-1.1-fit.tar.bz2 /tmp/git/janus-docker
 RUN cd /tmp/git/janus-docker/openssl-1.1-fit && ./config && make && make install_sw
+
+ADD libsrtp-2.3.0.tar.gz /tmp/git/janus-docker
+RUN cd /tmp/git/janus-docker/libsrtp-2.3.0 && \
+    ./configure && make && make install
 
 ENV PKG_CONFIG_PATH /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
 ADD janus-gateway-0.10.10.tar.gz /tmp/git/janus-docker
