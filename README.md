@@ -7,7 +7,11 @@ For https://github.com/winlinvip/janus-docker
 Start janus:
 
 ```bash
-docker run --rm -it -p 8080:8080 \
+ip=$(ifconfig en0 inet|grep inet|awk '{print $2}') &&
+sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=$ip/g" janus.jcfg &&
+docker run --rm -it -p 8080:8080 -p 20000-20010:20000-20010/udp \
+    -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
+    -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
     registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.4
 ```
 
@@ -18,7 +22,11 @@ docker run --rm -it -p 8080:8080 \
 也可以只启动Janus，不启动videoroom页面：
 
 ```bash
-docker run --rm -it -p 8080:8088 \
+ip=$(ifconfig en0 inet|grep inet|awk '{print $2}') &&
+sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=$ip/g" janus.jcfg &&
+docker run --rm -it -p 8080:8088 -p 20000-20010:20000-20010/udp \
+    -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
+    -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
     registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.4 \
     /usr/local/bin/janus
 ```

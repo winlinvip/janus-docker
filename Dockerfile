@@ -47,6 +47,9 @@ ENV LD_LIBRARY_PATH /usr/local/lib64
 ADD index.html /usr/local/share/janus/demos/
 ADD videoroomtest.js /usr/local/share/janus/demos/
 
+# Extra tools.
+RUN yum install -y net-tools
+
 WORKDIR /usr/local
 ADD start.sh /usr/local/bin
 CMD [ "/usr/local/bin/start.sh" ]
