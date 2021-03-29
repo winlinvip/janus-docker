@@ -8,7 +8,7 @@ Start janus:
 
 ```bash
 ip=$(ifconfig en0 inet|grep inet|awk '{print $2}') &&
-sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=$ip/g" janus.jcfg &&
+sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
 docker run --rm -it -p 8080:8080 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
@@ -23,7 +23,7 @@ docker run --rm -it -p 8080:8080 -p 20000-20010:20000-20010/udp \
 
 ```bash
 ip=$(ifconfig en0 inet|grep inet|awk '{print $2}') &&
-sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=$ip/g" janus.jcfg &&
+sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
 docker run --rm -it -p 8080:8088 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
