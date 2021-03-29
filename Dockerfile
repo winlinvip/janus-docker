@@ -42,10 +42,11 @@ ADD libsrtp-2.3.0.tar.gz /tmp/git/janus-docker
 RUN cd /tmp/git/janus-docker/libsrtp-2.3.0 && \
     ./configure && make && make install
 
+# https://github.com/meetecho/janus-gateway/issues/2024
 ENV PKG_CONFIG_PATH /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
 ADD janus-gateway-0.10.10.tar.gz /tmp/git/janus-docker
 RUN cd /tmp/git/janus-docker/janus-gateway-0.10.10 && \
-    bash autogen.sh && ./configure && \
+    bash autogen.sh && ./configure --disable-aes-gcm && \
     make && make configs && make install
 
 ENV LD_LIBRARY_PATH /usr/local/lib64
