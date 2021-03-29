@@ -12,7 +12,7 @@ sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
 docker run --rm -it -p 8080:8080 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
-    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.4
+    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.7
 ```
 
 > Note: Docker images at [here](https://cr.console.aliyun.com/repository/cn-hangzhou/ossrs/janus/images)
@@ -27,7 +27,7 @@ sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
 docker run --rm -it -p 8080:8088 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
-    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.4 \
+    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.7 \
     /usr/local/bin/janus
 ```
 
