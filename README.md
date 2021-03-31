@@ -12,7 +12,7 @@ sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
 docker run --rm -it -p 8080:8080 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
-    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.7
+    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.8
 ```
 
 > Note: Docker images at [here](https://cr.console.aliyun.com/repository/cn-hangzhou/ossrs/janus/images)
@@ -27,10 +27,14 @@ sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
 docker run --rm -it -p 8080:8088 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
-    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.7 \
+    registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.8 \
     /usr/local/bin/janus
 ```
 
 > Note: Janus的API侦听在8088端口，我们转到了8080端口，压测工具可以直接访问，不依赖页面。
+
+若部署在外网，那么需要将IP设置为外网IP，并通过HTTPS访问：https://ip
+
+> Note: 由于是自签名证书，打开页面后，点击页面空白处，敲单词（无空格）`thisisunsafe`。
 
 Winlin 2021.03
