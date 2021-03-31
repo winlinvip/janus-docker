@@ -56,6 +56,10 @@ ADD videoroomtest.js /usr/local/share/janus/demos/
 # Extra tools.
 RUN yum install -y net-tools
 
+# For HTTPS.
+ADD server.key /usr/local/etc/
+ADD server.crt /usr/local/etc/
+
 WORKDIR /usr/local
 ADD start.sh /usr/local/bin
 CMD [ "/usr/local/bin/start.sh" ]
