@@ -9,7 +9,7 @@ Start janus:
 ```bash
 ip=$(ifconfig en0 inet|grep inet|awk '{print $2}') &&
 sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
-docker run --rm -it -p 8080:8080 -p 20000-20010:20000-20010/udp \
+docker run --rm -it -p 8080:8080 -p 8443:8443 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
     registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.9
@@ -17,14 +17,18 @@ docker run --rm -it -p 8080:8080 -p 20000-20010:20000-20010/udp \
 
 > Note: Docker images at [here](https://cr.console.aliyun.com/repository/cn-hangzhou/ossrs/janus/images)
 
-打开页面，自动入会：[http://localhost:8080?room=2345](http://localhost:8080?room=2345)
+打开页面，自动入会：[http://localhost:8080/videoroomtest.html?room=2345](http://localhost:8080/videoroomtest.html?room=2345)。
+
+> Note: HTTPS页面请访问[https://localhost:8443/videoroomtest.html?room=2345](https://localhost:8443/videoroomtest.html?room=2345)。
+
+> Note: 由于是自签名证书，打开页面后，点击页面空白处，敲单词（无空格）`thisisunsafe`。
 
 也可以只启动Janus，不启动videoroom页面：
 
 ```bash
 ip=$(ifconfig en0 inet|grep inet|awk '{print $2}') &&
 sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
-docker run --rm -it -p 8080:8088 -p 20000-20010:20000-20010/udp \
+docker run --rm -it -p 8080:8088 -p 8443:8443 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
     registry.cn-hangzhou.aliyuncs.com/ossrs/janus:v1.0.9 \
