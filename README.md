@@ -17,9 +17,9 @@ docker run --rm -it -p 8080:8080 -p 8443:8443 -p 20000-20010:20000-20010/udp \
 
 > Note: Docker images at [here](https://cr.console.aliyun.com/repository/cn-hangzhou/ossrs/janus/images)
 
-打开页面，自动入会：[http://localhost:8080/videoroomtest.html?room=2345](http://localhost:8080/videoroomtest.html?room=2345)。
+打开页面，自动入会：[http://localhost:8080](http://localhost:8080)。
 
-> Note: HTTPS页面请访问[https://localhost:8443/videoroomtest.html?room=2345](https://localhost:8443/videoroomtest.html?room=2345)。
+> Note: HTTPS页面请访问[https://localhost:8443](https://localhost:8443)。
 
 > Note: 由于是自签名证书，打开页面后，点击页面空白处，敲单词（无空格）`thisisunsafe`。
 
@@ -37,7 +37,7 @@ docker run --rm -it -p 8080:8088 -p 8443:8443 -p 20000-20010:20000-20010/udp \
 
 > Note: Janus的API侦听在8088端口，我们转到了8080端口，压测工具可以直接访问，不依赖页面。
 
-若部署在外网，那么需要将IP设置为外网IP，并通过HTTPS访问：https://ip:8443?room=2345
+若部署在外网，那么需要将IP设置为外网IP，并通过HTTPS访问：https://ip:8443
 
 > Note: 由于是自签名证书，打开页面后，点击页面空白处，敲单词（无空格）`thisisunsafe`。
 
