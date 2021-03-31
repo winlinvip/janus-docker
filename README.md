@@ -41,4 +41,14 @@ docker run --rm -it -p 8080:8088 -p 8443:8443 -p 20000-20010:20000-20010/udp \
 
 > Note: 由于是自签名证书，打开页面后，点击页面空白处，敲单词（无空格）`thisisunsafe`。
 
+
+## Benchmark
+
+Please read [srs-bench](https://github.com/ossrs/srs-bench/tree/feature/rtc#janus):
+
+```bash
+./objs/srs_bench -sfu=janus -pr webrtc://localhost:8080/2345/livestream \
+  -sa a.ogg -sv v.h264 -fps 25 -sn 100 -delay 1000
+```
+
 Winlin 2021.03
