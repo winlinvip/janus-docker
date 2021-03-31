@@ -4,4 +4,5 @@ libnice-0.1.18
 libsrtp-2.3.0
 gengetopt-2.22
 libmicrohttpd-0.9.59
+*.log
 
