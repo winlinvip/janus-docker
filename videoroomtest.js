@@ -355,7 +355,7 @@ $(document).ready(function() {
 	}});
 
 	// Start and join room automatically.
-	$('#username').val('test');
+	$('#username').val('livestream');
 	$('#start').click();
 	setTimeout(function () {
 		$('#register').click();
