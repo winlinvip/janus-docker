@@ -77,6 +77,158 @@ room-2345: {
         videocodec = "h264"
         record = false
 }
+room-1000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-2000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-3000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-4000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-5000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-6000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-7000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-8000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-9000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-10000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-11000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-12000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-13000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-14000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-15000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-16000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-17000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-18000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
+room-19000: {
+        publishers = 1000
+        bitrate = 1280000
+        fir_freq = 10
+        audiocodec = "opus"
+        videocodec = "h264"
+        record = false
+}
 
 # This other demo room here is only there in case you want to play with
 # the VP9 SVC support. Notice that you'll need a Chrome launched with
