@@ -75,7 +75,9 @@ docker run --rm -it -p 8081:8080 -p 8188:8188 -p 8443:8443 -p 20000-20010:20000-
     ossrs/janus:v1.0.11
 ```
 
-打开浏览器，访问[http://localhost:8081/videoroomtest.html?room=1234](http://localhost:8081/videoroomtest.html?room=1234)，自动入会。
+打开浏览器，访问[http://localhost:8081/videoroomtest.html?room=2345](http://localhost:8081/videoroomtest.html?room=2345)，自动入会。
+
+> Note: 房间1234是VP8+OPUS，而2345是H.264+OPUS。
 
 然后，下载和启动[Simple WHIP Server](https://github.com/meetecho/simple-whip-server)，命令如下：
 
@@ -90,16 +92,18 @@ npm run start
 接着，需要创建一个WHIP的可接入ID：
 
 ```bash
-curl -H 'Content-Type: application/json' -d '{"id": "abc123", "room": 1234}' http://localhost:7080/whip/create
+curl -H 'Content-Type: application/json' -d '{"id": "abc123", "room": 2345}' http://localhost:7080/whip/create
 ```
+
+> Note: 房间1234是VP8+OPUS，而2345是H.264+OPUS。
 
 最后，运行SRS，这样可以用SRS的WebRTC播放器：
 
 ```bash
-./objs/srs -c conf/rtmp2rtc.conf
+./objs/srs -c conf/rtc.conf
 ```
 
-打开浏览器，访问[http://localhost:8080/players/whip.html](http://localhost:8080/players/whip.html)，输入地址：
+打开浏览器，访问[http://localhost:8080/players/whip.html?api=7080&path=/whip/endpoint/abc123](http://localhost:8080/players/whip.html?api=7080&path=/whip/endpoint/abc123)，输入地址：
 
 ```text
 http://localhost:7080/whip/endpoint/abc123
