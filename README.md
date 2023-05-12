@@ -15,8 +15,7 @@ docker run --rm -it -p 8081:8080 -p 8188:8188 -p 8443:8443 -p 20000-20010:20000-
     -v $(pwd)/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg \
     -v $(pwd)/janus.transport.websockets.jcfg:/usr/local/etc/janus/janus.transport.websockets.jcfg \
     -v $(pwd)/videoroomtest.js:/usr/local/share/janus/demos/videoroomtest.js \
-    --env LD_LIBRARY_PATH=/usr/local/lib64 ossrs/janus:v1.0.11 \
-    /usr/local/bin/start.sh
+    ossrs/janus:v1.0.11
 ```
 
 > Note: 国内可以用阿里云镜像`registry.cn-hangzhou.aliyuncs.com/ossrs/janus`。
@@ -40,8 +39,7 @@ docker run --rm -it -p 8080:8088 -p 8188:8188 -p 8443:8443 -p 20000-20010:20000-
     -v $(pwd)/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg \
     -v $(pwd)/janus.transport.websockets.jcfg:/usr/local/etc/janus/janus.transport.websockets.jcfg \
     -v $(pwd)/videoroomtest.js:/usr/local/share/janus/demos/videoroomtest.js \
-    --env LD_LIBRARY_PATH=/usr/local/lib64 ossrs/janus:v1.0.11 \
-    /usr/local/bin/janus
+    ossrs/janus:v1.0.11 /usr/local/bin/janus
 ```
 
 > Note: Janus的API侦听在8088端口，我们转到了8080端口，压测工具可以直接访问，不依赖页面。
@@ -74,8 +72,7 @@ docker run --rm -it -p 8081:8080 -p 8188:8188 -p 8443:8443 -p 20000-20010:20000-
     -v $(pwd)/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg \
     -v $(pwd)/janus.transport.websockets.jcfg:/usr/local/etc/janus/janus.transport.websockets.jcfg \
     -v $(pwd)/videoroomtest.js:/usr/local/share/janus/demos/videoroomtest.js \
-    --env LD_LIBRARY_PATH=/usr/local/lib64 ossrs/janus:v1.0.11 \
-    /usr/local/bin/start.sh
+    ossrs/janus:v1.0.11
 ```
 
 打开浏览器，访问[http://localhost:8081/videoroomtest.html?room=1234](http://localhost:8081/videoroomtest.html?room=1234)，自动入会。
