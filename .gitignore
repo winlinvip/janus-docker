@@ -6,4 +6,9 @@ gengetopt-2.22
 libmicrohttpd-0.9.59
 *.log
 .idea
-
+janus-gateway
+simple-whip-server
+dev-docker
+libwebsockets-3.2
+openssl-1.1-fit
+go-oryx-1.0.27
