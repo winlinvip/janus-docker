@@ -62,4 +62,5 @@ ADD server.crt /usr/local/etc/
 
 WORKDIR /usr/local
 ADD start.sh /usr/local/bin
+ADD janus.sh /usr/local/bin
 CMD [ "/usr/local/bin/start.sh" ]
