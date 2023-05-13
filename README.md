@@ -66,7 +66,7 @@ Please read [srs-bench](https://github.com/ossrs/srs-bench/tree/feature/rtc#janu
 ```bash
 ip=$(ifconfig en0 inet|grep inet|awk '{print $2}') &&
 sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
-docker run --rm -it -p 8080:8088 -p 8188:8188 -p 8443:8443 -p 20000-20010:20000-20010/udp \
+docker run --rm -it -p 8088:8088 -p 8188:8188 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
     -v $(pwd)/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg \
@@ -75,7 +75,9 @@ docker run --rm -it -p 8080:8088 -p 8188:8188 -p 8443:8443 -p 20000-20010:20000-
     ossrs/janus:v1.0.11 /usr/local/bin/janus
 ```
 
-打开浏览器，访问[http://localhost:8081/videoroomtest.html?room=2345](http://localhost:8081/videoroomtest.html?room=2345)，自动入会。
+> Note: WHIP只需要8088房间网页，以及8188的Websocket服务。
+
+打开浏览器，访问[http://localhost:8088/videoroomtest.html?room=2345](http://localhost:8088/videoroomtest.html?room=2345)，自动入会。
 
 > Note: 房间1234是VP8+OPUS，而2345是H.264+OPUS。
 
