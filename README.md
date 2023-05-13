@@ -22,6 +22,8 @@ docker run --rm -it -p 8081:8080 -p 8188:8188 -p 8443:8443 -p 20000-20010:20000-
 
 > Note: Docker images at [here](https://hub.docker.com/r/ossrs/janus/tags)
 
+> Note: 由于Janus是开一系列UDP端口，没有支持UDP端口复用，所以用Wireshark抓包时，可以设置为`udp portrange 20000-20010`。
+
 打开页面，自动入会：[http://localhost:8081](http://localhost:8081)。
 
 > Note: HTTPS页面请访问[https://localhost:8443](https://localhost:8443)。
@@ -67,14 +69,13 @@ Please read [srs-bench](https://github.com/ossrs/srs-bench/tree/feature/rtc#janu
 ```bash
 ip=$(ifconfig en0 inet|grep inet|awk '{print $2}') &&
 sed -i '' "s/nat_1_1_mapping.*/nat_1_1_mapping=\"$ip\"/g" janus.jcfg &&
-docker run --rm -it -p 8081:8080 -p 8188:8188 -p 20000-20010:20000-20010/udp \
+docker run --rm -it -p 8081:8080 -p 8188:8188 -p 8443:8443 -p 20000-20010:20000-20010/udp \
     -v $(pwd)/janus.jcfg:/usr/local/etc/janus/janus.jcfg \
     -v $(pwd)/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg \
     -v $(pwd)/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg \
     -v $(pwd)/janus.transport.websockets.jcfg:/usr/local/etc/janus/janus.transport.websockets.jcfg \
     -v $(pwd)/videoroomtest.js:/usr/local/share/janus/demos/videoroomtest.js \
-    -v $(pwd)/janus.sh:/usr/local/bin/janus.sh \
-    ossrs/janus:v1.0.11 /usr/local/bin/janus.sh
+    ossrs/janus:v1.0.11
 ```
 
 打开浏览器，访问[http://localhost:8081/videoroomtest.html?room=2345](http://localhost:8081/videoroomtest.html?room=2345)，自动入会。
