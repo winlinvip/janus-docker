@@ -44,8 +44,8 @@ RUN cd libsrtp-2.3.0 && ./configure && make && make install
 
 # https://github.com/meetecho/janus-gateway/issues/2024
 ENV PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
-ADD janus-gateway-0.10.10.tar.gz /tmp/git/janus-docker
-RUN cd janus-gateway-0.10.10 && \
+ADD janus-gateway-1.1.4.tar.gz /tmp/git/janus-docker
+RUN cd janus-gateway-1.1.4 && \
     bash autogen.sh && ./configure --disable-aes-gcm --enable-websockets && \
     make && make configs && make install
 
